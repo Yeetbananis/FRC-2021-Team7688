@@ -13,6 +13,17 @@ package frc.robot;
  * constants are needed, to reduce verbosity.
  */
 public final class Constants {
+    public final static int AGITATOR_MOTOR_PORT = 2;
+
+    public final static int LED_LENGTH = 59;
+    public final static int LED_PORT = 2;
+    public final static int HSV_SATURATION = 255;
+    public final static int HSV_VALUE = 128;
+  
+  
+    public static final double LAUNCHER_RAMP_TIME_DEFAULT = 1;
+    public static final double FEEDER_RAMP_TIME_DEFAULT = 1;
+
     /*
     DRIVETRAIN
     */
