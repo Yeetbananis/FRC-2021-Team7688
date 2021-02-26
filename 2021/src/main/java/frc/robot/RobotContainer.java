@@ -4,10 +4,15 @@
 
 package frc.robot;
 
+import java.sql.Driver;
+
 import edu.wpi.first.wpilibj.GenericHID;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.XboxController;
+import frc.robot.commands.Drive;
 import frc.robot.commands.ExampleCommand;
+import frc.robot.subsystems.Drivetrain;
+
 import frc.robot.commands.FeedShoot;
 import frc.robot.commands.LaunchShoot;
 import frc.robot.commands.StopFeedShoot;
@@ -30,6 +35,14 @@ public class RobotContainer {
 
   private final ExampleCommand m_autoCommand = new ExampleCommand(m_exampleSubsystem);
 
+  //Joystick and buttons
+  private final Joystick joystick = new Joystick(0);
+  private final JoystickButton driveTrigger = new JoystickButton(joystick, Constants.DRIVETRAIN_DRIVE_TRIGGER);
+
+  //Drivetrain
+  private final Drivetrain drivetrain = new Drivetrain();
+  private final Drive drivetrainDrive = new Drive(drivetrain);
+  
   public final static Feeder m_feeder = new Feeder();
   public final static Launcher m_launcher = new Launcher();
 
@@ -41,8 +54,6 @@ public class RobotContainer {
   private final Joystick m_joystick = new Joystick(0);
   private final JoystickButton j_trigger = new JoystickButton(m_joystick, 1);
   private final JoystickButton j_shootrigger = new JoystickButton(m_joystick, 6);
-
-
 
   /** The container for the robot. Contains subsystems, OI devices, and commands. */
   public RobotContainer() {
@@ -57,6 +68,8 @@ public class RobotContainer {
    * edu.wpi.first.wpilibj2.command.button.JoystickButton}.
    */
   private void configureButtonBindings() {
+    driveTrigger.whileHeld(drivetrainDrive);
+
     j_trigger.whileHeld(m_launchshoot);
     j_trigger.whenReleased(m_stoplaunchshoot);
 

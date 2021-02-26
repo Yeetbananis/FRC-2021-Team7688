@@ -43,4 +43,8 @@ public final class Constants {
     public static final int DRIVETRAIN_RIGHT_FRONT_TOP_CHANNEL = 4;
     public static final int DRIVETRAIN_RIGHT_FRONT_BOTTOM_CHANNEL = 5;
     public static final int DRIVETRAIN_RIGHT_BACK_TOP_CHANNEL = 6;
+
+    public static final int DRIVETRAIN_JOYSTICK_AXIS_SPEED = 4;
+    public static final int DRIVETRAIN_JOYSTICK_AXIS_ROTATION = 1;
+    public static final int DRIVETRAIN_DRIVE_TRIGGER = 12;
 }
