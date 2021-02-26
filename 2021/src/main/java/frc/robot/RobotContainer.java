@@ -15,12 +15,15 @@ import frc.robot.subsystems.Drivetrain;
 
 import frc.robot.commands.FeedShoot;
 import frc.robot.commands.LaunchShoot;
+import frc.robot.commands.LimelightPitch;
+import frc.robot.commands.LimelightRotate;
 import frc.robot.commands.StopFeedShoot;
 import frc.robot.commands.StopLaunchShoot;
 import frc.robot.subsystems.Agitator;
 import frc.robot.subsystems.ExampleSubsystem;
 import frc.robot.subsystems.Feeder;
 import frc.robot.subsystems.Launcher;
+import frc.robot.subsystems.LimelightActuator;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 
@@ -37,13 +40,18 @@ public class RobotContainer {
   private final ExampleCommand m_autoCommand = new ExampleCommand(m_exampleSubsystem);
 
   //Joystick and buttons
-  private final Joystick joystick = new Joystick(0);
-  private final JoystickButton driveTrigger = new JoystickButton(joystick, Constants.DRIVETRAIN_DRIVE_TRIGGER);
+  private final Joystick m_joystick = new Joystick(0);
+  private final JoystickButton j_trigger = new JoystickButton(m_joystick, 1);
+  private final JoystickButton j_shootrigger = new JoystickButton(m_joystick, 6);
+  private final JoystickButton driveTrigger = new JoystickButton(m_joystick, Constants.DRIVETRAIN_DRIVE_TRIGGER);
+  private final JoystickButton limelightRotateTrigger = new JoystickButton(m_joystick, Constants.LIMELIGHT_ACTUATOR_ROTATE_TRIGGER);
+  private final JoystickButton limelightPitchTrigger = new JoystickButton(m_joystick, Constants.LIMELIGHT_ACTUATOR_PITCH_TRIGGER);
 
   //Drivetrain
   private final Drivetrain drivetrain = new Drivetrain();
   private final Drive drivetrainDrive = new Drive(drivetrain);
   
+  //Feeder, Launcher, Agitator
   public final static Feeder m_feeder = new Feeder();
   public final static Launcher m_launcher = new Launcher();
   public final static Agitator m_agitator = new Agitator();
@@ -53,10 +61,11 @@ public class RobotContainer {
   private final StopLaunchShoot m_stoplaunchshoot = new StopLaunchShoot(m_launcher);
   private final StopFeedShoot m_stopfeedshoot = new StopFeedShoot(m_feeder);
 
-  private final Joystick m_joystick = new Joystick(0);
-  private final JoystickButton j_trigger = new JoystickButton(m_joystick, 1);
-  private final JoystickButton j_shootrigger = new JoystickButton(m_joystick, 6);
-
+  //Limelight Actuator
+  private final LimelightActuator limelightActuator = new LimelightActuator();
+  private final LimelightRotate limelightRotate = new LimelightRotate(limelightActuator);
+  private final LimelightPitch limelightPitch = new LimelightPitch(limelightActuator);
+  
   /** The container for the robot. Contains subsystems, OI devices, and commands. */
   public RobotContainer() {
     // Configure the button bindings
@@ -77,6 +86,9 @@ public class RobotContainer {
 
     j_shootrigger.whenPressed(m_feedshoot);
     j_shootrigger.whenReleased(m_stopfeedshoot);
+
+    limelightPitchTrigger.whenPressed(limelightPitch);
+    limelightRotateTrigger.whenPressed(limelightRotate);
   }
 
   /**
