@@ -32,7 +32,12 @@ public final class Constants {
     /*
     LAUNCHER
     */
-    public static final double LAUNCHER_RAMP_TIME_DEFAULT = 1;
+    public static final double LAUNCHER_RAMP = 1.5;
+    public static final double LAUNCHER_UPPER_SPEED = 0.48;
+    public static final double LAUNCHER_LOWER_SPEED = 0.48;
+    public static final int LAUNCHER_UPPER_MULTIPLIER = 1;
+    public static final int LAUNCHER_LOWER_MULTIPLIER = 1;
+
     public static final double FEEDER_RAMP_TIME_DEFAULT = 1;
     
     /*
