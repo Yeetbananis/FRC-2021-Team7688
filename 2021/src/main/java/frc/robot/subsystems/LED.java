@@ -30,7 +30,6 @@ public class LED extends SubsystemBase {
     m_rainbowFirstpixel_hue %= 180;
     m_LED.setData(m_ledb);
   }
-  
 
   public void Speed(double controller_y){
     double color = controller_y*255;
