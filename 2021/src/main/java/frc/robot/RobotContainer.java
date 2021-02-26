@@ -17,6 +17,7 @@ import frc.robot.commands.FeedShoot;
 import frc.robot.commands.LaunchShoot;
 import frc.robot.commands.StopFeedShoot;
 import frc.robot.commands.StopLaunchShoot;
+import frc.robot.subsystems.Agitator;
 import frc.robot.subsystems.ExampleSubsystem;
 import frc.robot.subsystems.Feeder;
 import frc.robot.subsystems.Launcher;
@@ -45,6 +46,7 @@ public class RobotContainer {
   
   public final static Feeder m_feeder = new Feeder();
   public final static Launcher m_launcher = new Launcher();
+  public final static Agitator m_agitator = new Agitator();
 
   private final LaunchShoot m_launchshoot = new LaunchShoot(m_launcher);
   private final FeedShoot m_feedshoot = new FeedShoot(m_feeder);

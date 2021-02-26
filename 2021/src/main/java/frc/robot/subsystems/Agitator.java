@@ -19,7 +19,7 @@ public class Agitator extends SubsystemBase {
     agitator.setOpenLoopRampRate(time);
   }
 
-  public void Speed(int Speed){
+  public void Speed(double Speed){
     agitator.set(Speed);
 
 
