@@ -5,10 +5,18 @@
 package frc.robot;
 
 import edu.wpi.first.wpilibj.GenericHID;
+import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.XboxController;
 import frc.robot.commands.ExampleCommand;
+import frc.robot.commands.FeedShoot;
+import frc.robot.commands.LaunchShoot;
+import frc.robot.commands.StopFeedShoot;
+import frc.robot.commands.StopLaunchShoot;
 import frc.robot.subsystems.ExampleSubsystem;
+import frc.robot.subsystems.Feeder;
+import frc.robot.subsystems.Launcher;
 import edu.wpi.first.wpilibj2.command.Command;
+import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 
 /**
  * This class is where the bulk of the robot should be declared. Since Command-based is a
@@ -22,6 +30,20 @@ public class RobotContainer {
 
   private final ExampleCommand m_autoCommand = new ExampleCommand(m_exampleSubsystem);
 
+  public final static Feeder m_feeder = new Feeder();
+  public final static Launcher m_launcher = new Launcher();
+
+  private final LaunchShoot m_launchshoot = new LaunchShoot(m_launcher);
+  private final FeedShoot m_feedshoot = new FeedShoot(m_feeder);
+  private final StopLaunchShoot m_stoplaunchshoot = new StopLaunchShoot(m_launcher);
+  private final StopFeedShoot m_stopfeedshoot = new StopFeedShoot(m_feeder);
+
+  private final Joystick m_joystick = new Joystick(0);
+  private final JoystickButton j_trigger = new JoystickButton(m_joystick, 1);
+  private final JoystickButton j_shootrigger = new JoystickButton(m_joystick, 6);
+
+
+
   /** The container for the robot. Contains subsystems, OI devices, and commands. */
   public RobotContainer() {
     // Configure the button bindings
@@ -34,7 +56,13 @@ public class RobotContainer {
    * edu.wpi.first.wpilibj.Joystick} or {@link XboxController}), and then passing it to a {@link
    * edu.wpi.first.wpilibj2.command.button.JoystickButton}.
    */
-  private void configureButtonBindings() {}
+  private void configureButtonBindings() {
+    j_trigger.whileHeld(m_launchshoot);
+    j_trigger.whenReleased(m_stoplaunchshoot);
+
+    j_shootrigger.whenPressed(m_feedshoot);
+    j_shootrigger.whenReleased(m_stopfeedshoot);
+  }
 
   /**
    * Use this to pass the autonomous command to the main {@link Robot} class.
