@@ -11,20 +11,19 @@ import frc.robot.Constants;
 
 public class Feeder extends SubsystemBase {
 
-  private final VictorSPX m_motor = new VictorSPX(2);
+  private final VictorSPX feeder = new VictorSPX(Constants.FEEDER_CHANNEL);
 
   /** Creates a new Feeder. */
   public Feeder() {
-    this.ChangeRampTime(Constants.FEEDER_RAMP_TIME_DEFAULT);
+    feeder.configOpenloopRamp(Constants.FEEDER_RAMP);
   }
 
-  public void Drive(double speed){
-    m_motor.configClosedloopRamp(0);
-    m_motor.set(ControlMode.PercentOutput, speed);
+  public void Feed(){
+    feeder.set(ControlMode.PercentOutput, Constants.FEEDER_SPEED);
   }
 
-  public void ChangeRampTime (double time){ 
-    m_motor.configClosedloopRamp(time);
+  public void Stop(){
+    feeder.set(ControlMode.PercentOutput, 0);
   }
 
   @Override
