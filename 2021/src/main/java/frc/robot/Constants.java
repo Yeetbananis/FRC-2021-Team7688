@@ -14,12 +14,15 @@ package frc.robot;
  */
 public final class Constants {
     public final static int AGITATOR_MOTOR_PORT = 2;
+    public final static double AGITATOR_RAMP_TIME = 0.9;
+    public final static double AGITATOR_MOTOR_SPEED = 0.3;
+    public final static double AGITATOR_WAIT_TIME = 5;
+
 
     public final static int LED_LENGTH = 59;
     public final static int LED_PORT = 2;
     public final static int HSV_SATURATION = 255;
     public final static int HSV_VALUE = 128;
-  
   
     public static final double LAUNCHER_RAMP_TIME_DEFAULT = 1;
     public static final double FEEDER_RAMP_TIME_DEFAULT = 1;
