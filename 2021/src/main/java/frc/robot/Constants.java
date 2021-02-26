@@ -14,4 +14,33 @@ package frc.robot;
  */
 public final class Constants {
     public final static int AGITATOR_MOTOR_PORT = 2;
+
+    public final static int LED_LENGTH = 59;
+    public final static int LED_PORT = 2;
+    public final static int HSV_SATURATION = 255;
+    public final static int HSV_VALUE = 128;
+  
+  
+    public static final double LAUNCHER_RAMP_TIME_DEFAULT = 1;
+    public static final double FEEDER_RAMP_TIME_DEFAULT = 1;
+
+    /*
+    DRIVETRAIN
+    */
+
+    public static final int DRIVETRAIN_DRIVE_DIRECTION = 1; //1 or -1
+    public static final double DRIVETRAIN_RAMP = 1;
+
+    public static final int DRIVETRAIN_LEFT_FRONT_TOP_CHANNEL = 7;
+    public static final int DRIVETRAIN_LEFT_FRONT_BOTTOM_CHANNEL = 8;
+    public static final int DRIVETRAIN_LEFT_BACK_TOP_CHANNEL = 9;
+
+    //TALON
+    public static final int DRIVETRAIN_LEFT_BACK_BOTTOM_CHANNEL = 10;
+    public static final int DRIVETRAIN_RIGHT_BACK_BOTTOM_CHANNEL = 3;
+
+    //VICTOR
+    public static final int DRIVETRAIN_RIGHT_FRONT_TOP_CHANNEL = 4;
+    public static final int DRIVETRAIN_RIGHT_FRONT_BOTTOM_CHANNEL = 5;
+    public static final int DRIVETRAIN_RIGHT_BACK_TOP_CHANNEL = 6;
 }
