@@ -12,4 +12,9 @@ package frc.robot;
  * <p>It is advised to statically import this class (or one of its inner classes) wherever the
  * constants are needed, to reduce verbosity.
  */
-public final class Constants {}
+public final class Constants {
+    public final static int LED_LENGTH = 59;
+    public final static int LED_PORT = 2;
+    public final static int HSV_SATURATION = 255;
+    public final static int HSV_VALUE = 128;
+}
