@@ -45,8 +45,12 @@ public final class Constants {
     */
     public static final double FEEDER_RAMP = 1.5;
     public static final double FEEDER_SPEED = 0.4;
-    public static final int FEEDER_MULTIPLIER = 1;
+    public static final int FEEDER_MULTIPLIER = -1;
     public static final int FEEDER_CHANNEL = 13;  
+    public static final double FEEDER_DELAY = 3; //Delay before the feeder starts in the FeedLaunch Sequential Command Group
+    
+    public static final double LAUNCHER_FEEDER_RUNTIME = 8; //Delay before the feeder starts in the FeedLaunch Sequential Command Group
+    public static final int LAUNCHER_FEEDER_TRIGGER = 3;
 
     /*
     LIMELIGHT ROTATOR
@@ -59,8 +63,8 @@ public final class Constants {
     public static final int LIMELIGHT_ACTUATOR_PITCH_CHANNEL = 0;
     public static final int LIMELIGHT_ACTUATOR_ROTATE_CHANNEL = 1;
 
-    public static final int LIMELIGHT_ACTUATOR_ROTATE_TRIGGER = 7;
-    public static final int LIMELIGHT_ACTUATOR_PITCH_TRIGGER = 8;
+    public static final int LIMELIGHT_ACTUATOR_ROTATE_TRIGGER = 2;
+    public static final int LIMELIGHT_ACTUATOR_PITCH_TRIGGER = 1;
 
     /*
     DRIVETRAIN
@@ -79,7 +83,7 @@ public final class Constants {
     public static final int DRIVETRAIN_RIGHT_FRONT_BOTTOM_CHANNEL = 5;
     public static final int DRIVETRAIN_RIGHT_BACK_TOP_CHANNEL = 6;
 
-    public static final int DRIVETRAIN_JOYSTICK_AXIS_SPEED = 4;
-    public static final int DRIVETRAIN_JOYSTICK_AXIS_ROTATION = 1;
-    public static final int DRIVETRAIN_DRIVE_TRIGGER = 12;
+    public static final int DRIVETRAIN_JOYSTICK_AXIS_SPEED = 1;
+    public static final int DRIVETRAIN_JOYSTICK_AXIS_ROTATION = 3;
+    public static final int DRIVETRAIN_DRIVE_TRIGGER = 6;
 }

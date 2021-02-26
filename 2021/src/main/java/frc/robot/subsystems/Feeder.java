@@ -19,7 +19,7 @@ public class Feeder extends SubsystemBase {
   }
 
   public void Feed(){
-    feeder.set(ControlMode.PercentOutput, Constants.FEEDER_SPEED);
+    feeder.set(ControlMode.PercentOutput, Constants.FEEDER_SPEED * Constants.FEEDER_MULTIPLIER);
   }
 
   public void Stop(){
