@@ -37,14 +37,17 @@ public final class Constants {
     public static final double LAUNCHER_LOWER_SPEED = 0.48;
     public static final int LAUNCHER_UPPER_MULTIPLIER = 1;
     public static final int LAUNCHER_LOWER_MULTIPLIER = 1;
-    
+    public static final int LAUNCHER_UPPER_CHANNEL = 11;
+    public static final int LAUNCHER_LOWER_CHANNEL = 12;
+
     /* 
     FEEDER
     */
     public static final double FEEDER_RAMP = 1.5;
     public static final double FEEDER_SPEED = 0.4;
     public static final int FEEDER_MULTIPLIER = 1;
-    public static final int FEEDER_CHANNEL = 13;    
+    public static final int FEEDER_CHANNEL = 13;  
+
     /*
     LIMELIGHT ROTATOR
     */

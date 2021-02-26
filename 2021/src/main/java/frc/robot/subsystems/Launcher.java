@@ -6,8 +6,8 @@ import frc.robot.Constants;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
 public class Launcher extends SubsystemBase {
-  private final WPI_VictorSPX upperLauncher = new WPI_VictorSPX(11);
-  private final WPI_VictorSPX lowerLauncher = new WPI_VictorSPX(12);
+  private final WPI_VictorSPX upperLauncher = new WPI_VictorSPX(Constants.LAUNCHER_UPPER_CHANNEL);
+  private final WPI_VictorSPX lowerLauncher = new WPI_VictorSPX(Constants.LAUNCHER_LOWER_CHANNEL);
   
   /** Creates a new Launcher. */
   public Launcher() {
