@@ -7,6 +7,7 @@ package frc.robot.commands;
 import edu.wpi.first.wpilibj2.command.SequentialCommandGroup;
 import edu.wpi.first.wpilibj2.command.WaitCommand;
 import frc.robot.Constants;
+import frc.robot.subsystems.Agitator;
 import frc.robot.subsystems.Feeder;
 import frc.robot.subsystems.Launcher;
 
@@ -15,7 +16,7 @@ import frc.robot.subsystems.Launcher;
 // https://docs.wpilib.org/en/stable/docs/software/commandbased/convenience-features.html
 public class FeedLaunch extends SequentialCommandGroup {
   /** Creates a new FeedLaunch. */
-  public FeedLaunch(Launcher launcher, Feeder feeder) {
+  public FeedLaunch(Launcher launcher, Feeder feeder,Agitator agitator) {
     // Add your commands in the addCommands() call, e.g.
     // addCommands(new FooCommand(), new BarCommand());
     addCommands(
@@ -23,8 +24,10 @@ public class FeedLaunch extends SequentialCommandGroup {
       new WaitCommand(Constants.FEEDER_DELAY),
       new Feed(feeder),
       new WaitCommand(Constants.LAUNCHER_FEEDER_RUNTIME),
+      new Pushball(),
       new StopFeed(feeder),
-      new StopLaunch(launcher)
+      new StopLaunch(launcher),
+      new StopAgitator(agitator)
     );
   }
 }
