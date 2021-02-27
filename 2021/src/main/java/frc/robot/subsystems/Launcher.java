@@ -1,28 +1,30 @@
 package frc.robot.subsystems;
 import com.ctre.phoenix.motorcontrol.ControlMode;
-import com.ctre.phoenix.motorcontrol.can.VictorSPX;
+import com.ctre.phoenix.motorcontrol.can.WPI_VictorSPX;
+
 import frc.robot.Constants;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
 public class Launcher extends SubsystemBase {
-
-  VictorSPX m_shoot1 = new VictorSPX(6);
-  VictorSPX m_shoot2 = new VictorSPX(3);
+  private final WPI_VictorSPX upperLauncher = new WPI_VictorSPX(Constants.LAUNCHER_UPPER_CHANNEL);
+  private final WPI_VictorSPX lowerLauncher = new WPI_VictorSPX(Constants.LAUNCHER_LOWER_CHANNEL);
   
   /** Creates a new Launcher. */
   public Launcher() {
-    this.ChangeRampTime(Constants.LAUNCHER_RAMP_TIME_DEFAULT);
+    upperLauncher.configOpenloopRamp(Constants.LAUNCHER_RAMP);
+    lowerLauncher.configOpenloopRamp(Constants.LAUNCHER_RAMP);
   }
 
-  public void Shoot(double speed2, double speed3){
-    m_shoot1.set(ControlMode.PercentOutput, speed2);
-    m_shoot2.set(ControlMode.PercentOutput, speed3);
+  public void Launch(){
+    upperLauncher.set(ControlMode.PercentOutput, Constants.LAUNCHER_UPPER_SPEED);
+    lowerLauncher.set(ControlMode.PercentOutput, Constants.LAUNCHER_LOWER_SPEED);
   }
 
-  public void ChangeRampTime (double time){
-    m_shoot1.configClosedloopRamp(time);
-    m_shoot2.configClosedloopRamp(time);
+  public void Stop(){
+    upperLauncher.set(ControlMode.PercentOutput, 0);
+    lowerLauncher.set(ControlMode.PercentOutput, 0);
   }
+
   @Override
   public void periodic() {
     // This method will be called once per scheduler run

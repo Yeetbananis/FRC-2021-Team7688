@@ -5,17 +5,16 @@
 package frc.robot.commands;
 
 import edu.wpi.first.wpilibj2.command.CommandBase;
-import frc.robot.subsystems.Feeder;
+import frc.robot.subsystems.Launcher;
 
-public class StopFeedShoot extends CommandBase {
-  /** Creates a new Stop. */
-Feeder m_feeder;
+public class StopLaunch extends CommandBase {
+  private final Launcher launcher;
 
-
-  public StopFeedShoot(Feeder input_feeder) {
+  /** Creates a new StopLaunch. */
+  public StopLaunch(Launcher l) {
+    launcher = l;
+    addRequirements(launcher);
     // Use addRequirements() here to declare subsystem dependencies.
-    m_feeder = input_feeder;
-    addRequirements(m_feeder);
   }
 
   // Called when the command is initially scheduled.
@@ -25,9 +24,9 @@ Feeder m_feeder;
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    m_feeder.Drive(0);
+    launcher.Stop();
   }
-  
+
   // Called once the command ends or is interrupted.
   @Override
   public void end(boolean interrupted) {}
@@ -35,8 +34,6 @@ Feeder m_feeder;
   // Returns true when the command should end.
   @Override
   public boolean isFinished() {
-    return false;
+    return true;
   }
 }
-
-

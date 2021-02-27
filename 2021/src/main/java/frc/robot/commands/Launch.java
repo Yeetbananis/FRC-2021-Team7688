@@ -7,13 +7,13 @@ package frc.robot.commands;
 import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.subsystems.Launcher;
 
-public class LaunchShoot extends CommandBase {
+public class Launch extends CommandBase {
+  private final Launcher launcher;
 
-  Launcher m_launcher;
-  /** Creates a new shoot. */
-  public LaunchShoot(Launcher input_launcher) {
-    m_launcher = input_launcher;
-    addRequirements(m_launcher);
+  /** Creates a new Launch. */
+  public Launch(Launcher l) {
+    launcher  = l;
+    addRequirements(launcher);
     // Use addRequirements() here to declare subsystem dependencies.
   }
 
@@ -24,7 +24,7 @@ public class LaunchShoot extends CommandBase {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    m_launcher.Shoot(-0.2, -0.2);
+    launcher.Launch();
   }
 
   // Called once the command ends or is interrupted.
@@ -34,6 +34,6 @@ public class LaunchShoot extends CommandBase {
   // Returns true when the command should end.
   @Override
   public boolean isFinished() {
-    return false;
+    return true;
   }
 }
