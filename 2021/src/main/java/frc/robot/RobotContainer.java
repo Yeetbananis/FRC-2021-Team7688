@@ -27,21 +27,18 @@ import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 public class RobotContainer {
   // The robot's subsystems and commands are defined here...
   private final ExampleSubsystem m_exampleSubsystem = new ExampleSubsystem();
-
   private final ExampleCommand m_autoCommand = new ExampleCommand(m_exampleSubsystem);
 
-  public final static Feeder m_feeder = new Feeder();
-  public final static Launcher m_launcher = new Launcher();
+  public final static Feeder m_feeder = new Feeder(); //reference feeder
+  public final static Launcher m_launcher = new Launcher(); //reference launcher
 
-  private final LaunchShoot m_launchshoot = new LaunchShoot(m_launcher);
-  private final FeedShoot m_feedshoot = new FeedShoot(m_feeder);
-  private final StopLaunchShoot m_stoplaunchshoot = new StopLaunchShoot(m_launcher);
-  private final StopFeedShoot m_stopfeedshoot = new StopFeedShoot(m_feeder);
+  private final LaunchShoot m_launchshoot = new LaunchShoot(m_launcher); //reference launch shoot command (motor 6 and 3)
+  private final FeedShoot m_feedshoot = new FeedShoot(m_feeder); //reference feed shoot command (motor 2)
+  private final StopLaunchShoot m_stoplaunchshoot = new StopLaunchShoot(m_launcher); //reference stop shoot command (motor 6 and 3)
+  private final StopFeedShoot m_stopfeedshoot = new StopFeedShoot(m_feeder); //refernce stop feed command (motor 2)
 
-  private final Joystick m_joystick = new Joystick(0);
-  private final JoystickButton j_trigger = new JoystickButton(m_joystick, 1);
-  private final JoystickButton j_shootrigger = new JoystickButton(m_joystick, 6);
-
+  private final Joystick m_joystick = new Joystick(0); //refernce joystick
+  private final JoystickButton j_trigger = new JoystickButton(m_joystick, 4); //refernce joystick button 4
 
 
   /** The container for the robot. Contains subsystems, OI devices, and commands. */
@@ -57,11 +54,8 @@ public class RobotContainer {
    * edu.wpi.first.wpilibj2.command.button.JoystickButton}.
    */
   private void configureButtonBindings() {
-    j_trigger.whileHeld(m_launchshoot);
-    j_trigger.whenReleased(m_stoplaunchshoot);
-
-    j_shootrigger.whenPressed(m_feedshoot);
-    j_shootrigger.whenReleased(m_stopfeedshoot);
+    j_trigger.whileHeld(m_launchshoot,m_feedshoot); //while held motors 2,3,6 spin @ specified speed
+    j_trigger.whenReleased(m_stoplaunchshoot, m_stopfeedshoot); //when released motors 2,3,6 stop spinning (0 speed)
   }
 
   /**

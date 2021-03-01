@@ -10,8 +10,10 @@ import frc.robot.subsystems.Feeder;
 
 public class FeedShoot extends CommandBase {
   /** Creates a new Drive1. */
- Feeder m_feeder; 
- private final Timer m_timer = new Timer();
+
+ Feeder m_feeder; //reference feeder 
+
+ //private final Timer m_timer = new Timer();
 
   public FeedShoot(Feeder input_feeder) {
     m_feeder = input_feeder;
@@ -21,16 +23,13 @@ public class FeedShoot extends CommandBase {
 
   // Called when the command is initially scheduled.
   @Override
-  public void initialize() {
-    m_feeder.ChangeRampTime(5);
-    m_timer.reset();
-    m_timer.start();
-  }
+  public void initialize() {}
+  
 
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    m_feeder.Drive(0.5);
+    m_feeder.Drive(-0.2); //motor 2 shoots @specified speed
   }
 
   // Called once the command ends or is interrupted.
@@ -40,10 +39,6 @@ public class FeedShoot extends CommandBase {
   // Returns true when the command should end.
   @Override
   public boolean isFinished() {
-    if(m_timer.get() > 5){
-      return true;
-    } else {
-      return false;
-    }
+    
   }
 }
