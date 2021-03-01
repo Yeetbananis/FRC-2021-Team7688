@@ -5,8 +5,7 @@ import frc.robot.subsystems.Launcher;
 
 public class StopLaunchShoot extends CommandBase {
 
-  Launcher m_launcher; //reference launcher
-
+  Launcher m_launcher;
   /** Creates a new Stop2. */
   public StopLaunchShoot(Launcher input_launcher) {
     m_launcher = input_launcher;
@@ -21,7 +20,7 @@ public class StopLaunchShoot extends CommandBase {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    m_launcher.Shoot(0, 0); //motors 3,6 stop
+    m_launcher.Shoot(0, 0);
   }
 
   // Called once the command ends or is interrupted.
