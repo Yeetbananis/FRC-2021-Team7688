@@ -50,11 +50,13 @@ public class RobotContainer {
 
   //Launcher
   public final static Launcher m_launcher = new Launcher();
-
-  public static final FeedLaunch feedLaunch = new FeedLaunch(m_launcher, m_feeder);
-
   //Agitator
   public final static Agitator m_agitator = new Agitator();
+
+
+  public static final FeedLaunch feedLaunch = new FeedLaunch(m_launcher, m_feeder,m_agitator);
+
+  
 
   //Limelight Actuator
   private final LimelightActuator limelightActuator = new LimelightActuator();
