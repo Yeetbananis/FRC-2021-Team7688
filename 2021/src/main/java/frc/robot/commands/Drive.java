@@ -8,15 +8,19 @@ import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.Constants;
 import frc.robot.subsystems.Drivetrain;
+import frc.robot.subsystems.LED;
 
 public class Drive extends CommandBase {
   private final Drivetrain drivetrain;
+  private final LED led;
   private final Joystick joystick = new Joystick(0);
 
   /** Creates a new Drive. */
-  public Drive(Drivetrain dt) {
+  public Drive(Drivetrain dt,LED i_led) {
     drivetrain = dt;
+    led = i_led;
     addRequirements(drivetrain);
+    addRequirements(led);
     // Use addRequirements() here to declare subsystem dependencies.
   }
 
@@ -27,6 +31,7 @@ public class Drive extends CommandBase {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
+    led.Speed(joystick.getRawAxis(Constants.DRIVETRAIN_JOYSTICK_AXIS_SPEED));
     drivetrain.drive(joystick.getRawAxis(Constants.DRIVETRAIN_JOYSTICK_AXIS_SPEED), joystick.getRawAxis(Constants.DRIVETRAIN_JOYSTICK_AXIS_ROTATION));
   }
 

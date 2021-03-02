@@ -17,6 +17,7 @@ import frc.robot.commands.LimelightRotate;
 import frc.robot.subsystems.Agitator;
 import frc.robot.subsystems.ExampleSubsystem;
 import frc.robot.subsystems.Feeder;
+import frc.robot.subsystems.LED;
 import frc.robot.subsystems.Launcher;
 import frc.robot.subsystems.LimelightActuator;
 import edu.wpi.first.wpilibj2.command.Command;
@@ -46,10 +47,12 @@ public class RobotContainer {
   private final JoystickButton j_Start = new JoystickButton(m_joystick, Constants.CONTROLLER_BUTTON_START);
   private final JoystickButton j_LStick = new JoystickButton(m_joystick, Constants.CONTROLLER_BUTTON_LEFTSTICK);
   private final JoystickButton j_RStick = new JoystickButton(m_joystick, Constants.CONTROLLER_BUTTON_RIGHTSTICK);
+  //LED
+  private final LED m_led = new LED();
 
   //Drivetrain
   private final Drivetrain drivetrain = new Drivetrain();
-  private final Drive drivetrainDrive = new Drive(drivetrain);
+  private final Drive drivetrainDrive = new Drive(drivetrain,m_led);
   
   //Feeder
   public final static Feeder m_feeder = new Feeder();
