@@ -18,14 +18,14 @@ public final class Constants {
     */
     public final static int AGITATOR_MOTOR_PORT = 2;
     public final static double AGITATOR_RAMP_TIME = 0.9;
-    public final static double AGITATOR_MOTOR_SPEED = 0.3;
-    public final static double AGITATOR_WAIT_TIME = 5;
+    public final static double AGITATOR_MOTOR_SPEED = 0.5;
+    public final static double AGITATOR_WAIT_TIME = 9;
 
     /*
     LED
     */
     public final static int LED_LENGTH = 59;
-    public final static int LED_PORT = 2;
+    public final static int LED_PORT = 9;
     public final static int HSV_SATURATION = 255;
     public final static int HSV_VALUE = 128;
   
