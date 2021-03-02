@@ -9,11 +9,12 @@ import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.XboxController;
 import frc.robot.commands.Drive;
 import frc.robot.commands.ExampleCommand;
-import frc.robot.commands.FeedLaunch;
+import frc.robot.commands.LEDwhite;
 import frc.robot.subsystems.Drivetrain;
 
 import frc.robot.commands.LimelightPitch;
 import frc.robot.commands.LimelightRotate;
+import frc.robot.commands.ShootwithLED;
 import frc.robot.subsystems.Agitator;
 import frc.robot.subsystems.ExampleSubsystem;
 import frc.robot.subsystems.Feeder;
@@ -48,7 +49,7 @@ public class RobotContainer {
   private final JoystickButton j_LStick = new JoystickButton(m_joystick, Constants.CONTROLLER_BUTTON_LEFTSTICK);
   private final JoystickButton j_RStick = new JoystickButton(m_joystick, Constants.CONTROLLER_BUTTON_RIGHTSTICK);
   //LED
-  private final LED m_led = new LED();
+  public final static LED m_led = new LED();
 
   //Drivetrain
   private final Drivetrain drivetrain = new Drivetrain();
@@ -61,9 +62,8 @@ public class RobotContainer {
   public final static Launcher m_launcher = new Launcher();
   //Agitator
   public final static Agitator m_agitator = new Agitator();
-
-
-  public static final FeedLaunch feedLaunch = new FeedLaunch(m_launcher, m_feeder,m_agitator);
+  //Shoot
+  public static final ShootwithLED Shoot = new ShootwithLED();
 
   
 
@@ -90,7 +90,7 @@ public class RobotContainer {
     j_A.whenPressed(limelightPitch);
     j_B.whenPressed(limelightRotate);
 
-    j_Y.whenPressed(feedLaunch);
+    j_Y.whenPressed(Shoot.andThen(new LEDwhite(m_led)));
   }
 
   /**
