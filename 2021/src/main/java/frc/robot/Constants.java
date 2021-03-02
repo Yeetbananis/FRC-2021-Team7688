@@ -83,7 +83,21 @@ public final class Constants {
     public static final int DRIVETRAIN_RIGHT_FRONT_BOTTOM_CHANNEL = 5;
     public static final int DRIVETRAIN_RIGHT_BACK_TOP_CHANNEL = 6;
 
-    public static final int DRIVETRAIN_JOYSTICK_AXIS_SPEED = 1;
-    public static final int DRIVETRAIN_JOYSTICK_AXIS_ROTATION = 4;
+    public static final int DRIVETRAIN_JOYSTICK_AXIS_SPEED = 5;
+    public static final int DRIVETRAIN_JOYSTICK_AXIS_ROTATION = 0;
     public static final int DRIVETRAIN_DRIVE_TRIGGER = 6;
+
+    /*
+    CONTROLLER
+    */
+    public static final int CONTROLLER_BUTTON_B = 2;
+    public static final int CONTROLLER_BUTTON_A = 1;
+    public static final int CONTROLLER_BUTTON_X = 3;
+    public static final int CONTROLLER_BUTTON_Y = 4;
+    public static final int CONTROLLER_BUTTON_LEFTSHOULDER = 5;
+    public static final int CONTROLLER_BUTTON_RIGHTSHOULDER = 6;
+    public static final int CONTROLLER_BUTTON_BACK = 7;
+    public static final int CONTROLLER_BUTTON_START = 8;
+    public static final int CONTROLLER_BUTTON_LEFTSTICK = 9;
+    public static final int CONTROLLER_BUTTON_RIGHTSTICK = 10;
 }

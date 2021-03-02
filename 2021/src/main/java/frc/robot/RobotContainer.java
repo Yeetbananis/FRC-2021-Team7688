@@ -36,10 +36,16 @@ public class RobotContainer {
 
   //Joystick and buttons
   private final Joystick m_joystick = new Joystick(0);
-  private final JoystickButton driveTrigger = new JoystickButton(m_joystick, Constants.DRIVETRAIN_DRIVE_TRIGGER);
-  private final JoystickButton limelightRotateTrigger = new JoystickButton(m_joystick, Constants.LIMELIGHT_ACTUATOR_ROTATE_TRIGGER);
-  private final JoystickButton limelightPitchTrigger = new JoystickButton(m_joystick, Constants.LIMELIGHT_ACTUATOR_PITCH_TRIGGER);
-  private final JoystickButton feedLaunchTrigger = new JoystickButton(m_joystick, Constants.LAUNCHER_FEEDER_TRIGGER);
+  private final JoystickButton j_A = new JoystickButton(m_joystick, Constants.CONTROLLER_BUTTON_A);
+  private final JoystickButton j_B = new JoystickButton(m_joystick, Constants.CONTROLLER_BUTTON_B);
+  private final JoystickButton j_X = new JoystickButton(m_joystick, Constants.CONTROLLER_BUTTON_X);
+  private final JoystickButton j_Y = new JoystickButton(m_joystick, Constants.CONTROLLER_BUTTON_Y);
+  private final JoystickButton j_LShoulder = new JoystickButton(m_joystick, Constants.CONTROLLER_BUTTON_LEFTSHOULDER);
+  private final JoystickButton j_RShoulder = new JoystickButton(m_joystick, Constants.CONTROLLER_BUTTON_RIGHTSHOULDER);
+  private final JoystickButton j_Back = new JoystickButton(m_joystick, Constants.CONTROLLER_BUTTON_BACK);
+  private final JoystickButton j_Start = new JoystickButton(m_joystick, Constants.CONTROLLER_BUTTON_START);
+  private final JoystickButton j_LStick = new JoystickButton(m_joystick, Constants.CONTROLLER_BUTTON_LEFTSTICK);
+  private final JoystickButton j_RStick = new JoystickButton(m_joystick, Constants.CONTROLLER_BUTTON_RIGHTSTICK);
 
   //Drivetrain
   private final Drivetrain drivetrain = new Drivetrain();
@@ -76,12 +82,12 @@ public class RobotContainer {
    * edu.wpi.first.wpilibj2.command.button.JoystickButton}.
    */
   private void configureButtonBindings() {
-    driveTrigger.whileHeld(drivetrainDrive);
+    j_RShoulder.whileHeld(drivetrainDrive);
 
-    limelightPitchTrigger.whenPressed(limelightPitch);
-    limelightRotateTrigger.whenPressed(limelightRotate);
+    j_A.whenPressed(limelightPitch);
+    j_B.whenPressed(limelightRotate);
 
-    feedLaunchTrigger.whenPressed(feedLaunch);
+    j_Y.whenPressed(feedLaunch);
   }
 
   /**
