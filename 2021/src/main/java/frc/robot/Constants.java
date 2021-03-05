@@ -28,6 +28,12 @@ public final class Constants {
     public final static int LED_PORT = 9;
     public final static int HSV_SATURATION = 255;
     public final static int HSV_VALUE = 128;
+    /*
+    Pnumatic
+    */
+    public final static int COMPRESSOR_PORT = 0;
+    public final static int PENUMATIC_SOLENOIDS_RIGHT_PORT = 0;
+    public final static int PENUMATIC_SOLENOIDS_LEFT_PORT = 1;
   
     /*
     LAUNCHER
